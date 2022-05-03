@@ -5,21 +5,21 @@
 
 class Player {
 public:
-    Player();
-    ~Player();
-    Player(const Player &);
-    Player& operator=(const Player&);
+    Player(std::string name, int initialForce = 5, int maxHP = 100);
+    ~Player() = default;
+    Player(const Player &) = default;
+    Player& operator=(const Player&) = default;
 
-    printInfo();
-    levelUp();
-    getLevel();
-    buff();
-    heal();
-    damage();
-    isKnockedOut();
-    addCoins();
-    pay();
-    getAttackStrength();
+    void printInfo();
+    void levelUp();
+    int getLevel();
+    void buff(int buffVal);
+    void heal(int hpVal);
+    void damage(int damageVal);
+    bool isKnockedOut();
+    void addCoins();
+    bool pay();
+    int getAttackStrength();
 
 private:
     std::string m_name;
