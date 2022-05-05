@@ -31,8 +31,12 @@ public:
      *      An instance of Player
      */
     Player(std::string playerName, int initialForce = 5, int maxHP = 100);
+
+    /*
+     * Default D'tor, copy C'tor, assignment operator overload
+     */
     ~Player() = default;
-    Player(const Player &) = default;
+    Player(const Player&) = default;
     Player& operator=(const Player&) = default;
 
     /*
