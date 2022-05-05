@@ -2,8 +2,8 @@
 
 using namespace std;
 
-Player::Player(string name, int initialForce, int maxHP) {
-    m_name = name;
+Player::Player(string playerName, int initialForce, int maxHP) {
+    m_name = playerName;
     m_level = 1;
     m_coins = 0;
     m_force = initialForce;
@@ -58,6 +58,24 @@ bool Player::isKnockedOut() {
         return true;
     }
 }
+
+void Player::addCoins(int amount) {
+    m_coins += amount;
+}
+
+bool Player::pay(int amount) {
+    if (m_coins - amount < 0) {
+        cout << "Not enough coins" << endl;
+        return false;
+    } else {
+        m_coins -= amount;
+        return true;
+    }
+}
+
+int Player::getAttackStrength() {
+    return m_force + m_level;
+}
 //--------------------for testing------------------------//
 
 void playerStatus(Player& player) {
@@ -71,6 +89,13 @@ void playerStatus(Player& player) {
 void damageCheck(Player& player, int damageVal) {
     player.damage(damageVal);
     cout << "The player received " << damageVal << " damage\n" << endl;
+}
+
+void coinsCheck(Player& player, int coinsToAdd, int coinsToPay) {
+    player.addCoins(coinsToAdd);
+    cout << "The player received " << coinsToAdd << " coins\n";
+    player.pay(coinsToPay);
+    cout << "The player payed " << coinsToPay << " coins\n" << endl;
 }
 
 int main() {
@@ -91,6 +116,13 @@ int main() {
 
     player1.heal(3);
     player1.printInfo();
+    cout << "\n";
+
+    coinsCheck(player1, 5, 2);
+    player1.printInfo();
+    cout << "\n";
+
+    cout << "The player's attack strength is: " << player1.getAttackStrength() << endl;
 
     return 0;
 }
