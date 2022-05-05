@@ -1,7 +1,7 @@
 #ifndef EX2_PLAYER_H
 #define EX2_PLAYER_H
 
-#include <iostream>
+#include <string>
 
 /*
  * Implements a Player class for Mtmchkin game
