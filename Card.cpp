@@ -11,8 +11,10 @@ void Card::applyEncounter(Player &player) const {
             if (player.getAttackStrength() >= m_stats.force) {
                 player.levelUp();
                 player.addCoins(m_stats.loot);
+                printBattleResult(true);
             } else {
                 player.damage(m_stats.hpLossOnDefeat);
+                printBattleResult(false);
             }
             break;
 
@@ -24,7 +26,7 @@ void Card::applyEncounter(Player &player) const {
 
         case CardType::Heal:
             if (player.pay(m_stats.cost)) {
-                player.heal(m_stats.heal); //if HP maxed out should he pay?
+                player.heal(m_stats.heal);
             }
             break;
 
