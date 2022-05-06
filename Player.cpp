@@ -31,12 +31,10 @@ int Player::getLevel() {
 }
 
 void Player::buff(int buffVal) {
-    //coins?
     m_force += buffVal;
 }
 
 void Player::heal(int hpVal) {
-    //coins?
     if (hpVal > m_maxHP - m_HP) {
         m_HP = m_maxHP;
     } else {
