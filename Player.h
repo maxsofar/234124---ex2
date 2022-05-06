@@ -3,22 +3,6 @@
 
 #include <string>
 
-/*
- * Implements a Player class for Mtmchkin game
- *
- * The following methods are available:
- *   printInfo	       - Prints current player's parameters.
- *   levelUp		   - Increases player's level by one.
- *   getLevel          - Returns player's current level.
- *   buff	           - Adds a certain number of force points to the player.
- *   heal	           - Adds a certain number of HP to the player.
- *   damage            - Subtracts a certain number of HP from the player.
- *   isKnockedOut      - Returns player's status according to his health.
- *   addCoins          - Adds a certain number of coins to the coins owned by the player.
- *   pay               - Subtracts a certain number of coins from the coins owned by the player.
- *   getAttackStrength - Returns an attack strength of the player.
- */
-
 class Player {
 public:
     /*
