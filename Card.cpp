@@ -26,7 +26,7 @@ void Card::applyEncounter(Player &player) const {
 
         case CardType::Heal:
             if (player.pay(m_stats.cost)) {
-                player.heal(m_stats.heal); //if HP maxed out should he pay?
+                player.heal(m_stats.heal);
             }
             break;
 
