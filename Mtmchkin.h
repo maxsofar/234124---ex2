@@ -65,7 +65,7 @@ private:
     Player m_player;
     int m_cardIndex;
     int m_numOfCards;
-    Card* m_cardStack;
+    const Card* m_cardStack;
 };
 
 
