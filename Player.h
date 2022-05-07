@@ -2,6 +2,7 @@
 #define EX2_PLAYER_H
 
 #include <string>
+#include "utilities.h"
 
 class Player {
 public:
@@ -14,7 +15,7 @@ public:
      * @result
      *      An instance of Player
      */
-    Player(std::string playerName, int initialForce = 5, int maxHP = 100);
+    Player(std::string playerName, int maxHP = 100, int initialForce = 5);
 
     /*
      * Default D'tor, copy C'tor, assignment operator overload
