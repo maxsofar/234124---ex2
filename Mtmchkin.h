@@ -58,8 +58,6 @@ public:
      */
     GameStatus getGameStatus() const;
 
-    //TODO: complete the Mtmchkin class.
-
 private:
     GameStatus m_gameStatus;
     Player m_player;
