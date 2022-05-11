@@ -1,12 +1,16 @@
 #include "Mtmchkin.h"
 
-Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCards) : m_player(Player(playerName)) {
+Mtmchkin::Mtmchkin(const char *playerName, Card *cardsArray, int numOfCards) : m_player(Player(playerName)) {
     m_gameStatus = GameStatus::MidGame;
     m_numOfCards = numOfCards;
     m_cardIndex = 0;
-    m_cardStack = new Card(*cardsArray);
+    m_cardStack = new Card[numOfCards];
+    int cardIndex = 0;
+    while(cardIndex < numOfCards) {
+        m_cardStack[cardIndex] = Card(cardsArray[cardIndex]);
+        ++cardIndex;
+    }
 }
-
 
 void Mtmchkin::playNextCard() {
     m_cardStack[m_cardIndex].printInfo();

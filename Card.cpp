@@ -7,7 +7,7 @@ Card::Card(CardType type, const CardStats& stats) {
 
 void Card::applyEncounter(Player &player) const {
     switch (m_effect) {
-        case CardType::Battle:
+        case CardType::Battle: {
             if (player.getAttackStrength() >= m_stats.force) {
                 player.levelUp();
                 player.addCoins(m_stats.loot);
@@ -16,22 +16,32 @@ void Card::applyEncounter(Player &player) const {
                 player.damage(m_stats.hpLossOnDefeat);
                 printBattleResult(false);
             }
+        }
             break;
 
-        case CardType::Buff:
+        case CardType::Buff: {
+            if (m_stats.cost < 0) {
+                break;
+            }
             if (player.pay(m_stats.cost)) {
                 player.buff(m_stats.buff);
             }
+        }
             break;
 
-        case CardType::Heal:
+        case CardType::Heal: {
+            if (m_stats.cost < 0) {
+                break;
+            }
             if (player.pay(m_stats.cost)) {
                 player.heal(m_stats.heal);
             }
+        }
             break;
 
-        case CardType::Treasure:
+        case CardType::Treasure: {
             player.addCoins(m_stats.loot);
+        }
             break;
     }
 }

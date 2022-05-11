@@ -28,7 +28,7 @@ public:
      * @result
      *      An instance of Mtmchkin
     */
-    Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards);
+    Mtmchkin(const char* playerName, Card* cardsArray, int numOfCards);
 
 
     /*
@@ -63,7 +63,7 @@ private:
     Player m_player;
     int m_cardIndex;
     int m_numOfCards;
-    const Card* m_cardStack;
+    Card* m_cardStack;
 };
 
 

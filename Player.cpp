@@ -70,7 +70,6 @@ void Player::addCoins(int amount) {
 
 bool Player::pay(int amount) {
     if (m_coins - amount < 0) {
-        std::cout << "Not enough coins" << std::endl;
         return false;
     } else {
         m_coins -= amount;

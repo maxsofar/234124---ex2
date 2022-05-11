@@ -7,7 +7,8 @@
 
 
 int main() {
-    Card cards[4];
+    //Card cards[4];
+    Card *cards = new Card[4];
     CardStats stats(3, 40, 10, 30, 1, 20);
     cards[0] = Card(CardType::Treasure,stats);
     cards[1] = Card(CardType::Buff,stats);
