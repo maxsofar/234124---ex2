@@ -7,8 +7,12 @@ Player::Player(std::string playerName, int maxHP, int initialForce) {
     m_name = playerName;
     m_level = 1;
     m_coins = 0;
-    m_force = initialForce;
-    m_HP = m_maxHP = maxHP;
+    if (initialForce > 0) {
+        m_force = initialForce;
+    }
+    if (maxHP > 0) {
+        m_HP = m_maxHP = maxHP;
+    }
 }
 
 void Player::printInfo() {
