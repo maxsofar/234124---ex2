@@ -31,6 +31,9 @@ int Player::getLevel() {
 }
 
 void Player::buff(int buffVal) {
+    if (buffVal < 0) {
+        return;
+    }
     m_force += buffVal;
 }
 

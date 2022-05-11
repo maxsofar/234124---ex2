@@ -19,9 +19,9 @@ void Card::applyEncounter(Player &player) const {
             break;
 
         case CardType::Buff:
-                if (player.pay(m_stats.cost)) {
-                    player.buff(m_stats.buff);
-                }
+            if (player.pay(m_stats.cost)) {
+                player.buff(m_stats.buff);
+            }
             break;
 
         case CardType::Heal:
