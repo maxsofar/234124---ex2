@@ -62,6 +62,9 @@ bool Player::isKnockedOut() {
 }
 
 void Player::addCoins(int amount) {
+    if (amount < 0) {
+        return;
+    }
     m_coins += amount;
 }
 
