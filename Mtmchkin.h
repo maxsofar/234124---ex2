@@ -58,6 +58,10 @@ public:
      */
     GameStatus getGameStatus() const;
 
+    ~Mtmchkin();
+    //Mtmchkin(const Mtmchkin&) = default;
+    //Mtmchkin& operator=(const Mtmchkin& other) = default;
+
 private:
     GameStatus m_gameStatus;
     Player m_player;

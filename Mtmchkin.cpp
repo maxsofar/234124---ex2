@@ -12,6 +12,10 @@ Mtmchkin::Mtmchkin(const char *playerName, Card *cardsArray, int numOfCards) : m
     }
 }
 
+Mtmchkin::~Mtmchkin() {
+    delete[] m_cardStack;
+}
+
 void Mtmchkin::playNextCard() {
     m_cardStack[m_cardIndex].printInfo();
     m_cardStack[m_cardIndex].applyEncounter(m_player);
