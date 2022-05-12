@@ -38,7 +38,10 @@ void Player::buff(int buffVal) {
 }
 
 void Player::heal(int hpVal) {
-    if (hpVal > m_maxHP - m_HP) {
+    if (hpVal < 0) {
+        return;
+    }
+    else if (hpVal > m_maxHP - m_HP) {
         m_HP = m_maxHP;
     } else {
         m_HP += hpVal;
@@ -46,7 +49,9 @@ void Player::heal(int hpVal) {
 }
 
 void Player::damage(int damageVal) {
-    if (m_HP - damageVal < 0) {
+    if (damageVal < 0) {
+        return;
+    }else if(m_HP - damageVal < 0) {
         m_HP = 0;
     } else {
         m_HP -= damageVal;
@@ -69,7 +74,9 @@ void Player::addCoins(int amount) {
 }
 
 bool Player::pay(int amount) {
-    if (m_coins - amount < 0) {
+    if (amount <= 0) {
+        return true;
+    } else if (m_coins - amount < 0){
         return false;
     } else {
         m_coins -= amount;
