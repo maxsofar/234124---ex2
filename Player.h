@@ -4,6 +4,10 @@
 #include <string>
 #include "utilities.h"
 
+#define DEFAULT_HP 100
+#define DEFAULT_FORCE 5
+#define  MAX_LEVEL 10
+
 class Player {
 public:
     /*
@@ -15,7 +19,7 @@ public:
      * @result
      *      An instance of Player
      */
-    Player(std::string playerName, int maxHP = 100, int initialForce = 5);
+    Player(std::string playerName, int maxHP = DEFAULT_HP, int initialForce = DEFAULT_FORCE);
 
     /*
      * Default D'tor, copy C'tor, assignment operator overload

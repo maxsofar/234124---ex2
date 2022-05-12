@@ -1,7 +1,4 @@
-#include <iostream>
 #include "Player.h"
-
-//using namespace std;
 
 Player::Player(std::string playerName, int maxHP, int initialForce) {
     m_name = playerName;
@@ -21,7 +18,7 @@ void Player::printInfo() {
 }
 
 void Player::levelUp() {
-    if (m_level < 10) {
+    if (m_level < MAX_LEVEL) {
         ++m_level;
     }
 }
