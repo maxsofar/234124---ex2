@@ -1,9 +1,7 @@
 #include "Player.h"
 
 Player::Player(std::string playerName, int maxHP, int initialForce)
-    : m_name(playerName), m_maxHP(maxHP), m_HP(maxHP), m_force(initialForce){
-    m_level = 1;
-    m_coins = 0;
+    : m_name(playerName), m_level(1),  m_force(initialForce), m_maxHP(maxHP), m_HP(maxHP), m_coins(0) {
     if (initialForce <= 0) {
         m_force = 5;
     }
