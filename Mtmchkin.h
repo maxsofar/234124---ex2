@@ -58,12 +58,16 @@ public:
      */
     GameStatus getGameStatus() const;
 
+    ~Mtmchkin();
+    //Mtmchkin(const Mtmchkin&) = default;
+    //Mtmchkin& operator=(const Mtmchkin& other) = default;
+
 private:
     GameStatus m_gameStatus;
     Player m_player;
     int m_cardIndex;
     int m_numOfCards;
-    const Card* m_cardStack;
+    Card* m_cardStack;
 };
 
 

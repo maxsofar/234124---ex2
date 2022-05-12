@@ -4,9 +4,17 @@ Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCard
     m_gameStatus = GameStatus::MidGame;
     m_numOfCards = numOfCards;
     m_cardIndex = 0;
-    m_cardStack = new Card(*cardsArray);
+    m_cardStack = new Card[numOfCards];
+    int cardIndex = 0;
+    while(cardIndex < numOfCards) {
+        m_cardStack[cardIndex] = Card(cardsArray[cardIndex]);
+        ++cardIndex;
+    }
 }
 
+Mtmchkin::~Mtmchkin() {
+    delete[] m_cardStack;
+}
 
 void Mtmchkin::playNextCard() {
     m_cardStack[m_cardIndex].printInfo();

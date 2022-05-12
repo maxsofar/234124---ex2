@@ -7,8 +7,12 @@ Player::Player(std::string playerName, int maxHP, int initialForce) {
     m_name = playerName;
     m_level = 1;
     m_coins = 0;
-    m_force = initialForce;
-    m_HP = m_maxHP = maxHP;
+    if (initialForce > 0) {
+        m_force = initialForce;
+    }
+    if (maxHP > 0) {
+        m_HP = m_maxHP = maxHP;
+    }
 }
 
 void Player::printInfo() {
@@ -27,11 +31,17 @@ int Player::getLevel() {
 }
 
 void Player::buff(int buffVal) {
+    if (buffVal < 0) {
+        return;
+    }
     m_force += buffVal;
 }
 
 void Player::heal(int hpVal) {
-    if (hpVal > m_maxHP - m_HP) {
+    if (hpVal < 0) {
+        return;
+    }
+    else if (hpVal > m_maxHP - m_HP) {
         m_HP = m_maxHP;
     } else {
         m_HP += hpVal;
@@ -39,7 +49,9 @@ void Player::heal(int hpVal) {
 }
 
 void Player::damage(int damageVal) {
-    if (m_HP - damageVal < 0) {
+    if (damageVal < 0) {
+        return;
+    }else if(m_HP - damageVal < 0) {
         m_HP = 0;
     } else {
         m_HP -= damageVal;
@@ -55,12 +67,16 @@ bool Player::isKnockedOut() {
 }
 
 void Player::addCoins(int amount) {
+    if (amount < 0) {
+        return;
+    }
     m_coins += amount;
 }
 
 bool Player::pay(int amount) {
-    if (m_coins - amount < 0) {
-        std::cout << "Not enough coins" << std::endl;
+    if (amount <= 0) {
+        return true;
+    } else if (m_coins - amount < 0){
         return false;
     } else {
         m_coins -= amount;
