@@ -6,7 +6,7 @@
 
 #define DEFAULT_HP 100
 #define DEFAULT_FORCE 5
-#define  MAX_LEVEL 10
+#define MAX_LEVEL 10
 
 class Player {
 public:

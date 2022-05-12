@@ -1,14 +1,14 @@
 #include "Player.h"
 
-Player::Player(std::string playerName, int maxHP, int initialForce) {
-    m_name = playerName;
+Player::Player(std::string playerName, int maxHP, int initialForce)
+    : m_name(playerName), m_maxHP(maxHP), m_HP(maxHP), m_force(initialForce){
     m_level = 1;
     m_coins = 0;
-    if (initialForce > 0) {
-        m_force = initialForce;
+    if (initialForce <= 0) {
+        m_force = 5;
     }
-    if (maxHP > 0) {
-        m_HP = m_maxHP = maxHP;
+    if (maxHP <= 0) {
+        m_HP = m_maxHP = 100;
     }
 }
 
