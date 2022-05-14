@@ -1,17 +1,12 @@
-#include <iostream>
 #include "Player.h"
 
-//using namespace std;
-
-Player::Player(std::string playerName, int maxHP, int initialForce) {
-    m_name = playerName;
-    m_level = 1;
-    m_coins = 0;
-    if (initialForce > 0) {
-        m_force = initialForce;
+Player::Player(std::string playerName, int maxHP, int initialForce)
+    : m_name(playerName), m_level(1),  m_force(initialForce), m_maxHP(maxHP), m_HP(maxHP), m_coins(0) {
+    if (initialForce <= 0) {
+        m_force = 5;
     }
-    if (maxHP > 0) {
-        m_HP = m_maxHP = maxHP;
+    if (maxHP <= 0) {
+        m_HP = m_maxHP = 100;
     }
 }
 
@@ -21,7 +16,7 @@ void Player::printInfo() {
 }
 
 void Player::levelUp() {
-    if (m_level < 10) {
+    if (m_level < MAX_LEVEL) {
         ++m_level;
     }
 }
