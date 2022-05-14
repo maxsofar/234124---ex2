@@ -3,10 +3,10 @@
 Player::Player(std::string playerName, int maxHP, int initialForce)
     : m_name(playerName), m_level(1),  m_force(initialForce), m_maxHP(maxHP), m_HP(maxHP), m_coins(0) {
     if (initialForce <= 0) {
-        m_force = 5;
+        m_force = DEFAULT_FORCE;
     }
     if (maxHP <= 0) {
-        m_HP = m_maxHP = 100;
+        m_HP = m_maxHP = DEFAULT_HP;
     }
 }
 
